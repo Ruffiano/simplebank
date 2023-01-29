@@ -13,7 +13,7 @@ import (
 func main() {
 	config, err := util.LoadConfig(".")
 
-	conn, err := sql.Open(config.DBDriver, config.dbSource)
+	conn, err := sql.Open(config.DBDriver, config.DBSource)
 	if err != nil {
 		log.Fatal("cannot connect to db:", err)
 	}
@@ -21,7 +21,7 @@ func main() {
 	store := db.NewStore(conn)
 	server := api.NewServer(store)
 
-	err = server.Start(config.serverAddress)
+	err = server.Start(config.ServerAddress)
 	if err != nil {
 		log.Fatal("cannot start server: ", err)
 	}
